@@ -1395,6 +1395,11 @@ void ZedCamera::getPosTrackingParams()
 
   mBaseFrameId = mCameraName;
   mBaseFrameId += "_camera_link";
+  std::string baseFrameParam = mBaseFrameId;
+  sl_tools::getParam(
+    shared_from_this(), "pos_tracking.base_frame", baseFrameParam,
+    baseFrameParam, " * Base frame id: ");
+  mBaseFrameId = baseFrameParam;
 
   sl_tools::getParam(
     shared_from_this(), "pos_tracking.map_frame", mMapFrameId,
