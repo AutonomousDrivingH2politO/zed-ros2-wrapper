@@ -114,6 +114,7 @@ def launch_setup(context, *args, **kwargs):
     publish_map_tf = LaunchConfiguration('publish_map_tf')
     publish_imu_tf = LaunchConfiguration('publish_imu_tf')
     publish_mag = LaunchConfiguration('publish_mag')
+    publish_imu_raw = LaunchConfiguration('publish_imu_raw')
     xacro_path = LaunchConfiguration('xacro_path')
 
     custom_baseline = LaunchConfiguration('custom_baseline')
@@ -293,6 +294,7 @@ def launch_setup(context, *args, **kwargs):
                 'pos_tracking.publish_map_tf': publish_map_tf,
                 'sensors.publish_imu_tf': publish_imu_tf,
                 'sensors.publish_mag': publish_mag,
+                'sensors.publish_imu_raw': publish_imu_raw,
                 'gnss_fusion.gnss_fusion_enabled': enable_gnss
             }
     )
@@ -412,6 +414,11 @@ def generate_launch_description():
                 'publish_mag',
                 default_value='true',
                 description='Enable publication of the magnetometer data.',
+                choices=['true', 'false']),
+            DeclareLaunchArgument(
+                'publish_imu_raw',
+                default_value='true',
+                description='Enable publication of the raw IMU data.',
                 choices=['true', 'false']),
             DeclareLaunchArgument(
                 'xacro_path',
