@@ -112,7 +112,7 @@
             map_frame: 'map'
             odometry_frame: 'odom'
             base_frame: 'base_link' # Leave empty to use `<camera_name>_camera_link`, or set to your robot base frame (e.g. 'base_link')
-            area_memory: true # Enable to detect loop closure
+            area_memory: false # Enable to detect loop closure
             area_file_path: '' # Path to the area memory file for relocalization and loop closure in a previously explored environment. 
             enable_localization_only: false # If true, the camera will only localize in the loaded area memory without updating the map with new information.
             save_area_memory_on_closing: false # Save Area memory before closing the camera if `area_file_path` is not empty. You can also use the `save_area_memory` service to save the area memory at any time.
@@ -144,7 +144,7 @@
             broadcast_utm_transform_as_parent_frame: false # if 'true' publish `utm` -> `map` TF, otherwise `map` -> `utm`
             enable_reinitialization: false # determines whether reinitialization should be performed between GNSS and VIO fusion when a significant disparity is detected between GNSS data and the current fusion data. It becomes particularly crucial during prolonged GNSS signal loss scenarios.
             enable_rolling_calibration: true # If this parameter is set to true, the fusion algorithm will used a rough VIO / GNSS calibration at first and then refine it. This allow you to quickly get a fused position.
-            enable_translation_uncertainty_target: true # When this parameter is enabled (set to true), the calibration process between GNSS and VIO accounts for the uncertainty in the determined translation, thereby facilitating the calibration termination. The maximum allowable uncertainty is controlled by the 'target_translation_uncertainty' parameter.
+            enable_translation_uncertainty_target: false # When this parameter is enabled (set to true), the calibration process between GNSS and VIO accounts for the uncertainty in the determined translation, thereby facilitating the calibration termination. The maximum allowable uncertainty is controlled by the 'target_translation_uncertainty' parameter.
             gnss_vio_reinit_threshold: 5.0 # determines the threshold for GNSS/VIO reinitialization. If the fused position deviates beyond out of the region defined by the product of the GNSS covariance and the gnss_vio_reinit_threshold, a reinitialization will be triggered.
             target_translation_uncertainty: 0.1 # defines the target translation uncertainty at which the calibration process between GNSS and VIO concludes. By default, the threshold is set at 10 centimeters.
             target_yaw_uncertainty: 0.1 # defines the target yaw uncertainty at which the calibration process between GNSS and VIO concludes. The unit of this parameter is in radian. By default, the threshold is set at 0.1 radians.
