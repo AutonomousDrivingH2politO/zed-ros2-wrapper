@@ -123,11 +123,11 @@
             set_as_static: false # If 'true' the camera will be static and not move in the environment
             set_gravity_as_origin: true # If 'true' align the positional tracking world to imu gravity measurement. Keep the yaw from the user initial pose.
             floor_alignment: true # Enable to automatically calculate camera/floor offset
-            initial_base_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # Initial position of the `camera_link` frame in the map -> [X, Y, Z, R, P, Y]
+            initial_base_pose: [1.1, 0.0, 1.0, 0.0, 0.0, 0.0] # Initial position of the `camera_link` frame in the map -> [X, Y, Z, R, P, Y]
             path_pub_rate: 2.0 # [DYNAMIC] - Camera trajectory publishing frequency. Set to 0 for no limit (= grab_frame_rate).
             path_max_count: -1 # use '-1' for unlimited path size
             two_d_mode: true # Force navigation on a plane. If true the Z value will be fixed to 'fixed_z_value', roll and pitch to zero
-            fixed_z_value: 0.0 # Value to be used for Z coordinate if `two_d_mode` is true
+            fixed_z_value: 1.0 # Value to be used for Z coordinate if `two_d_mode` is true
             transform_time_offset: 0.0 # The value added to the timestamp of `map->odom` and `odom->camera_link` transform being generated
             reset_pose_with_svo_loop: true # Reset the camera pose the `initial_base_pose` when the SVO loop is enabled and the SVO playback reaches the end of the file.
             publish_odom_pose: true # Advertise the odometry and pose topics that are published only if a node subscribes to them
